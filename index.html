@@ -31,13 +31,14 @@
 			 -->
 			<li ng-repeat="i in items | searchFor:searchString">
 				<!-- <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a> -->
-				<p>{{i.title}} in {{i.bldg}} ({{i.loc}})</p>
+				<p>{{i.title}} in {{i.bldg}} {{ i.location }}</p>
+				<ui-gmap-google-map center="i.location" zoom="17" draggable="true" options="options">
+		        <ui-gmap-marker coords='i.location' options="marker.options" events="" idkey="i.id">
+		        </ui-gmap-marker>
+		    </ui-gmap-google-map>
 			</li>
 		</ul>
-		<div>
-			<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-		</div>
-
+		
 		<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 
 		<!-- Latest compiled and minified CSS -->

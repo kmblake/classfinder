@@ -40,16 +40,27 @@ app.controller('ClassfinderController', ['$scope', function($scope) {
 		{
 			title: 'CS 107',
 			bldg: 'NVIDIA',
-			loc: '(1,2)'
+			location: {latitude: 37.4281111, longitude: -122.176272},
+			id: 1
 		},
 		{ 
 			title: 'CS 110',
 			bldg: 'CEMEX',
-			loc: '(3,4)'
-		},
+			location: {latitude: 37.4247218, longitude: -122.1649816},
+			id: 2
+		}
+
 	];
 
-	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+	// $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+	// $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 4 };
+  $scope.map = {center: {latitude: 37.4280888, longitude: -122.1723306 }, zoom: 16 };
+  $scope.options = {scrollwheel: false};
+  $scope.coordsUpdates = 0;
+  $scope.dynamicMoveCtr = 0;
+  $scope.marker = {
+    options: { draggable: false }
+  };
 }]);
 
 // function ClassfinderController($scope){
