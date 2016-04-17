@@ -19,6 +19,7 @@ app.filter('searchFor', function(){
 	return function(arr, searchString){
 
 		if(!searchString){
+			document.getElementById("exclusiveZero").style.display = 'none';
 			return arr;
 		}
 
@@ -35,10 +36,22 @@ app.filter('searchFor', function(){
 
 		});
 
+		if(result.length == 1){
+			document.getElementById("exclusive").style.display = 'block';
+			document.getElementById("exclusiveZero").style.display = 'none';
+		}else if(result.length == 0){
+			document.getElementById("exclusiveZero").style.display = 'block';
+		}else {
+			document.getElementById("exclusive").style.display = 'none';
+			document.getElementById("exclusiveZero").style.display = 'none';
+		}
+		
 		return result;
 	};
 
 });
+
+
 
 // The controller
 

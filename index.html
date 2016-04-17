@@ -14,7 +14,6 @@
 		<![endif]-->
 	</head>
 
-	<!-- Initialize a new AngularJS app and associate it with a module named "instantSearch"-->
 	<body ng-app="classfinder" ng-controller="ClassfinderController">
 
 		<div class="page-header">
@@ -24,23 +23,19 @@
 			<input id="queryBox" type="text" ng-model="searchString" placeholder="Enter class name or number" />
 		</div>
 
-<!-- 		<div class="form-group">
-			Create a binding between the searchString model and the text field
-			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
-		</div> -->
-
 		<ul>
-			<!-- Render a li element for every entry in the items array. Notice
-				 the custom search filter "searchFor". It takes the value of the
-				 searchString model as an argument.
-			 -->
 			<li ng-repeat="i in items | searchFor:searchString">
 				<div>
 					<h3>{{i.title}}: {{i.desc}} in {{i.bldg}}</h3>
-				<iframe width="600" height="450" frameborder="0" style="border:0" src="{{i.loc}}" allowfullscreen></iframe>
+					<div id="exclusive" style= "display:none">
+						<iframe width="600" height="450" frameborder="0" style="border:0" src="{{i.loc}}"></iframe>
+					</div>
 				</div>
 			</li>
 		</ul>
+			<div id="exclusiveZero" style= "display:none">
+				<h3> There is no result, sorry. </h3>
+			</div>
 		
 		<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 
