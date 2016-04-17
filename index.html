@@ -7,8 +7,7 @@
 
 		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
 
-		<!-- The main CSS file -->
-		<link href="style.css" rel="stylesheet" />
+		
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,11 +17,17 @@
 	<!-- Initialize a new AngularJS app and associate it with a module named "instantSearch"-->
 	<body ng-app="classfinder" ng-controller="ClassfinderController">
 
-		<h1>Classfinder</h1>
-		<div class="bar">
-			<!-- Create a binding between the searchString model and the text field -->
-			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+		<div class="page-header">
+		  <h1>Classfinder <small>Helping you get oriented since 2016</small></h1>
 		</div>
+		<div class="bar">
+			<input id="queryBox" type="text" ng-model="searchString" placeholder="Enter class name or number" />
+		</div>
+
+<!-- 		<div class="form-group">
+			Create a binding between the searchString model and the text field
+			<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+		</div> -->
 
 		<ul>
 			<!-- Render a li element for every entry in the items array. Notice
@@ -30,8 +35,10 @@
 				 searchString model as an argument.
 			 -->
 			<li ng-repeat="i in items | searchFor:searchString">
-				<p>{{i.title}}: {{i.desc}} in {{i.bldg}}</p>
+				<div>
+					<h3>{{i.title}}: {{i.desc}} in {{i.bldg}}</h3>
 				<iframe width="600" height="450" frameborder="0" style="border:0" src="{{i.loc}}" allowfullscreen></iframe>
+				</div>
 			</li>
 		</ul>
 		
@@ -45,6 +52,10 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		<!-- The main CSS file -->
+		<link href="style.css" rel="stylesheet" />
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular.min.js"></script>
 		<script src="script.js"></script>
 	</body>
